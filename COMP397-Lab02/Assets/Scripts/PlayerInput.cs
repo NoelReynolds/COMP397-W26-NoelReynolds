@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
     private Vector3 velocity;
     [SerializeField] private float rotationSpeed = 60.0f;
     [SerializeField] private float mouseSensitivity = 5.0f;
+    private float camXRotation;
     [SerializeField, Self] private CharacterController controller;
     [SerializeField, Child] private Camera cam;
 
@@ -27,6 +28,8 @@ public class PlayerInput : MonoBehaviour
     {
         move = InputSystem.actions.FindAction("Player/Move");
         look = InputSystem.actions.FindAction("Player/Look");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         /*controller = GetComponent<CharacterController>();
         if (controller != null)
         {
@@ -55,8 +58,14 @@ public class PlayerInput : MonoBehaviour
 
         transform.Rotate(Vector3.up, readLook.x * rotationSpeed * Time.deltaTime);
 
-        mouseSensitivity = mouseSensitivity * readLook.y;
-        mouseSensitivity = Mathf.Clamp(mouseSensitivity, -90f, 90f);
-        cam.gameObject.transform.localRotation = Quaternion.Euler(mouseSensitivity * readLook.y, 0, 0);
+        camXRotation += mouseSensitivity * readLook.y * Time.deltaTime * -1;
+        camXRotation = Mathf.Clamp(camXRotation, -90f, 90f);
+        cam.gameObject.transform.localRotation = Quaternion.Euler(camXRotation, 0, 0);
+    }
+
+    public void ChangeMouseSensitivity(float value)
+    {
+        mouseSensitivity = value;
+        rotationSpeed = value;
     }
 }
