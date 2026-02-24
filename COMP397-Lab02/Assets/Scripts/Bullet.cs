@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     {
         //Debug.Log(other.transform.name);
         //if (other.gameObject.tag == "Enemy")
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("NPC"))
         {
             Destroy(other.gameObject);
         }

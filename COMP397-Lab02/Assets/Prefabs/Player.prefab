@@ -266,9 +266,10 @@ GameObject:
   - component: {fileID: 5556352706356877648}
   - component: {fileID: 6609158173766323909}
   - component: {fileID: 4002831498551034290}
+  - component: {fileID: 4017293207087703488}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,6 +415,7 @@ MonoBehaviour:
   mouseSensitivity: 15
   controller: {fileID: 5556352706356877648}
   cam: {fileID: 5923080856026534640}
+  audioController: {fileID: 0}
 --- !u!114 &4002831498551034290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +436,21 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &4017293207087703488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837384532465333556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309aa00fd4ba21c46a6601c62020261e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShooter
+  bullet: {fileID: 5495686780538004272, guid: 24ffef3e1a7bba148bc019e1735d4755, type: 3}
+  projectileSpawn: {fileID: 6103654692464502600}
+  projectileForce: 25
 --- !u!1 &7058001092427874895
 GameObject:
   m_ObjectHideFlags: 0
